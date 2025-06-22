@@ -1,0 +1,21 @@
+# ADK Core
+google-adk
+
+# Streamlit for UI
+streamlit
+
+# Google Cloud & Vertex AI integration
+google-cloud-aiplatform
+google-cloud-storage
+
+# Document parsing
+python-pptx
+PyMuPDF
+
+# Configuration file handling
+pyyaml
+
+# Data validation
+pydantic
+
+python-dotenv

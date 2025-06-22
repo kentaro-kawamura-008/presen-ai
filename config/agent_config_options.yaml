@@ -1,0 +1,45 @@
+agent_options:
+  logic_critic:
+    name: "ロジック批評家"
+    description: "プレゼンの構成や主張の論理的な一貫性を評価します。"
+    options:
+      - id: "strict"
+        label: "辛口批評モード"
+        description: "論理の飛躍や矛盾点を厳しく指摘します。改善点が明確になります。"
+        cost_factor: 1.2
+        prompt_fragment: "あなたは非常に厳しい評論家です。どんな小さな論理の矛盾も見逃さず、具体的かつ辛辣に指摘してください。指摘は必ず改善案とセットで提示してください。"
+      - id: "supportive"
+        label: "寄り添いモード"
+        description: "良い点を褒めつつ、改善点を優しく提案します。モチベーションを維持したい方向け。"
+        cost_factor: 1.0
+        prompt_fragment: "あなたは聞き手の良き相談相手です。良い点を具体的に評価し、さらに良くするための改善点を建設的に、かつ優しく提案してください。"
+
+  audience_persona:
+    name: "聴衆ペルソナ"
+    description: "設定された聴衆になりきって、興味を引くか、疑問に思うかを評価します。"
+    options:
+      - id: "skeptical"
+        label: "懐疑的な聴衆"
+        description: "常に「本当？」「根拠は？」と疑いの目で資料をチェックします。"
+        cost_factor: 1.1
+        prompt_fragment: "あなたは懐疑的な人物です。プレゼンの主張に対して、常に根拠や裏付けデータを求め、納得できない点には鋭い質問を投げかける視点でレビューしてください。特に、費用対効果やリスクに関する視点を重視してください。"
+      - id: "newbie"
+        label: "初心者な聴衆"
+        description: "専門用語や前提知識がない状態で、内容を理解できるかチェックします。"
+        cost_factor: 1.0
+        prompt_fragment: "あなたはこの分野の知識が全くない初心者です。専門用語が多用されていないか、話の前提が共有されていなくても平易な言葉で理解できるか、という視点でレビューしてください。"
+
+  qna_generator:
+    name: "質疑応答ジェネレーター"
+    description: "プレゼン内容に基づき、想定されるQ&Aリストを作成します。"
+    options:
+      - id: "enabled"
+        label: "生成する"
+        description: "想定問答集を作成します。"
+        cost_factor: 1.0
+        prompt_fragment: "" # 実行の有無を判定するためプロンプトは不要
+      - id: "disabled"
+        label: "生成しない"
+        description: "Q&Aの作成をスキップし、時間とコストを節約します。"
+        cost_factor: 0.0
+        prompt_fragment: ""
