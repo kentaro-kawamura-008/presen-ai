@@ -14,7 +14,7 @@ def create_root_agent(selected_configs: Dict[str, str], progress_notifier: Befor
     sub_agents: List[BaseAgent] = []
 
     # 1. 資料解析エージェントは常に実行
-    sub_agents.append(create_document_analyzer_agent())
+    sub_agents.append(create_document_analyzer_agent(before_agent_callback=progress_notifier))
 
     # 2. 2つのレビューエージェントを並列実行
     # (参照: docs/agents/workflow-agents/parallel-agents.md)
