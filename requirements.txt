@@ -19,3 +19,5 @@ pyyaml
 pydantic
 
 python-dotenv
+
+google-genai

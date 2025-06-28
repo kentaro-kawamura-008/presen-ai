@@ -3,10 +3,10 @@ from google.adk.tools import FunctionTool
 from adk_logic.prompts.base_prompts import DOCUMENT_ANALYZER_INSTRUCTION
 from adk_logic.tools.document_parser_tool import parse_presentation_document
 from adk_logic.state_models import DocumentAnalysisResult
-from adk_logic.callbacks import BeforeAgentCallback, add_document_to_request_callback
+from adk_logic.callbacks import before_agent_callback, add_document_to_request_callback
 
 
-def create_document_analyzer_agent(before_agent_callback: BeforeAgentCallback = None) -> LlmAgent:
+def create_document_analyzer_agent() -> LlmAgent:
     """
     アップロードされた資料をLLMに直接解析させ、結果をStateに保存するエージェントを生成。
     ファイルはbefore_model_callback経由でLLMリクエストに追加される。

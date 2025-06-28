@@ -7,25 +7,13 @@ from google.genai import types
 from google.adk.runners import Runner
 from google.adk.sessions import InMemorySessionService
 from adk_logic.root_agent_factory import create_root_agent
-from adk_logic.callbacks import create_progress_notifier_callback
 from adk_logic.state_models import PresentaAiState, FinalReport, AudienceProfile
 
 # ロギング設定
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-# RunnerとSessionServiceはシングルトンとして管理
-_runner_instance: Optional[Runner] = None
 
-def get_runner() -> Runner:
-    """Runnerのシングルトンインスタンスを取得する"""
-    global _runner_instance
-    if _runner_instance is None:
-        _runner_instance = Runner(
-            app_name=self._agent.name,
-            agent=self._agent,
-            session_service=InMemorySessionService(),
-        )
-    return _runner_instance
+
 
 async def run_review_process(
     gcs_file_path: str,
@@ -53,10 +41,11 @@ async def run_review_process(
      # ハッカソン向けに固定
 
     # 1. UIの進捗通知コールバックをADKコールバックにラップ
-    progress_notifier = create_progress_notifier_callback(progress_callback)
-    
+
+        # progress_notifier = create_progress_notifier_callback(progress_callback)
     # 2. 実行ごとに特化したRootAgentを動的に生成
-    root_agent = create_root_agent(selected_configs, progress_notifier=progress_notifier)
+    # root_agent = create_root_agent(selected_configs, progress_notifier=progress_notifier)
+    root_agent = create_root_agent(selected_configs)
     runner = Runner(
         app_name=app_name, 
         session_service=InMemorySessionService(),

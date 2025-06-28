@@ -2,9 +2,9 @@ from google.adk.agents import LlmAgent
 from adk_logic.prompts.base_prompts import QNA_GENERATOR_BASE_PROMPT
 from adk_logic.state_models import PresentaAiState, QnAPair, FinalReport
 from typing import List
-from adk_logic.callbacks import BeforeAgentCallback
+from adk_logic.callbacks import before_agent_callback
 
-def create_qna_generator_agent(before_agent_callback: BeforeAgentCallback = None) -> LlmAgent:
+def create_qna_generator_agent() -> LlmAgent:
     """最終レポートから想定問答集を生成するエージェント"""
     
     # # このエージェントは最終レポートにQ&Aリストを追記する
