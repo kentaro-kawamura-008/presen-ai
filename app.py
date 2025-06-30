@@ -119,25 +119,25 @@ def draw_input_page():
             "レビューしてほしいプレゼン資料をアップロードしてください",
             type=['pptx', 'pdf']
         )
-        # st.session_state.presentation_goal = st.text_area(
-        #     "このプレゼンの目的は何ですか？",
-        #     placeholder="例：新規事業「Project X」の予算承認を得て、開発キックオフに繋げること。",
-        #     height=100
-        # )
-        st.session_state.presentation_goal = "上手なプレゼンテーションのためのコツの紹介"
+        st.session_state.presentation_goal = st.text_area(
+            "このプレゼンの目的は何ですか？",
+            placeholder="例：新規事業「Project X」の予算承認を得て、開発キックオフに繋げること。",
+            height=100
+        )
+        # st.session_state.presentation_goal = "上手なプレゼンテーションのためのコツの紹介"
         col1, col2 = st.columns(2)
         with col1:
-            # st.session_state.audience_role = st.text_input(
-            #     "主な聴衆の役職や立場は？",
-            #     placeholder="例：部長クラスの意思決定者、技術部門のマネージャー"
-            # )
-             st.session_state.audience_role = "プレゼンテーションを控える若者"
+            st.session_state.audience_role = st.text_input(
+                "主な聴衆の役職や立場は？",
+                placeholder="例：部長クラスの意思決定者、技術部門のマネージャー"
+            )
+            #  st.session_state.audience_role = "プレゼンテーションを控える若者"
         with col2:
-            # st.session_state.audience_interests = st.text_input(
-            #     "聴衆の主な関心事や知識レベルは？",
-            #     placeholder="例：事業のROIと市場性。技術的な詳細にはあまり詳しくない。"
-            # )
-            st.session_state.audience_interests = "プレゼンテーション初心者"
+            st.session_state.audience_interests = st.text_input(
+                "聴衆の主な関心事や知識レベルは？",
+                placeholder="例：事業のROIと市場性。技術的な詳細にはあまり詳しくない。"
+            )
+            # st.session_state.audience_interests = "プレゼンテーション初心者"
             
         print("dbg2")
         
